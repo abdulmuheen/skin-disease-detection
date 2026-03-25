@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom doctor cursor SVG */
+:root {
+  --cursor-doctor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="%231E3A8A"><path d="M19 10h-4V6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v4H5c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h4v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4h4c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2z"/></svg>') 14 14, auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: var(--cursor-doctor);
+  background-color: #FFFFFF;
+  color: #0F172A;
+}
+
+a, button, input, select, textarea {
+  cursor: var(--cursor-doctor);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+code, .mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 33%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 33%;
+    --chart-1: 221 83% 33%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 0 84% 60%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Medical Theme Colors */
+.bg-medical-blue {
+  background-color: #1E3A8A;
+}
+
+.bg-medical-blue-light {
+  background-color: #EFF6FF;
+}
+
+.bg-medical-green {
+  background-color: #059669;
+}
+
+.bg-medical-green-light {
+  background-color: #ECFDF5;
+}
+
+.text-medical-blue {
+  color: #1E3A8A;
+}
+
+.text-medical-green {
+  color: #059669;
+}
+
+.border-medical-blue {
+  border-color: #1E3A8A;
+}
+
+/* Scanning animation */
+@keyframes scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+}
+
+.scanning-line {
+  animation: scan 2s ease-in-out infinite;
+}
+
+/* Upload zone styling */
+.upload-zone {
+  border: 2px dashed #CBD5E1;
+  transition: all 0.2s ease;
+}
+
+.upload-zone:hover {
+  border-color: #1E3A8A;
+  background-color: #EFF6FF;
+}
+
+.upload-zone.drag-active {
+  border-color: #059669;
+  background-color: #ECFDF5;
+}
+
+/* Card shadows */
+.card-shadow {
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* Focus states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: #1E3A8A;
+  ring-offset: 2px;
+}
+
+/* Alert boxes */
+.alert-warning {
+  background-color: #FEF3C7;
+  border-left: 4px solid #F59E0B;
+}
+
+.alert-danger {
+  background-color: #FEF2F2;
+  border-left: 4px solid #DC2626;
+}
+
+.alert-info {
+  background-color: #EFF6FF;
+  border-left: 4px solid #1E3A8A;
+}
+
+/* Progress bar */
+.confidence-bar {
+  background: linear-gradient(90deg, #059669 0%, #34D399 100%);
+}
+
+/* Button hover effect */
+.btn-medical:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.btn-medical:active {
+  transform: translateY(0);
+}
+
+/* PDF Button */
+.btn-pdf {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+}
+
+.btn-pdf:hover {
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 100%);
+}
+
+@layer base {
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+}

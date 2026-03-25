@@ -1,0 +1,195 @@
+/* App specific styles */
+.app-container {
+  min-height: 100vh;
+  background-color: #FFFFFF;
+}
+
+/* Navigation */
+.nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* Hero section */
+.hero-gradient {
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+}
+
+/* Bento grid for results */
+.bento-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.bento-item-full {
+  grid-column: span 12;
+}
+
+.bento-item-half {
+  grid-column: span 6;
+}
+
+.bento-item-third {
+  grid-column: span 4;
+}
+
+.bento-item-two-thirds {
+  grid-column: span 8;
+}
+
+@media (max-width: 768px) {
+  .bento-item-half,
+  .bento-item-third,
+  .bento-item-two-thirds {
+    grid-column: span 12;
+  }
+}
+
+/* Result cards */
+.result-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* Image preview */
+.image-preview-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #F8FAFC;
+}
+
+.scanning-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #059669, transparent);
+  box-shadow: 0 0 20px #059669;
+}
+
+/* Confidence meter */
+.confidence-meter {
+  height: 12px;
+  border-radius: 6px;
+  background: #F1F5F9;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.8s ease-out;
+}
+
+.confidence-low {
+  background: linear-gradient(90deg, #DC2626, #EF4444);
+}
+
+.confidence-medium {
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+}
+
+.confidence-high {
+  background: linear-gradient(90deg, #059669, #34D399);
+}
+
+/* Disclaimer box */
+.disclaimer-box {
+  background: #FEF3C7;
+  border-left: 4px solid #F59E0B;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem 1.5rem;
+}
+
+/* Treatment list */
+.treatment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.treatment-item:last-child {
+  border-bottom: none;
+}
+
+/* Severity badges */
+.badge-mild {
+  background: #ECFDF5;
+  color: #059669;
+}
+
+.badge-moderate {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.badge-severe {
+  background: #FEF2F2;
+  color: #DC2626;
+}
+
+/* Loading state */
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Fade in animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Checkmark animation */
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

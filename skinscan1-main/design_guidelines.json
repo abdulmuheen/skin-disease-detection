@@ -1,0 +1,115 @@
+{
+  "theme_type": "Medical/Clinical - Light Mode Preferred",
+  "typography": {
+    "headings": {
+      "family": "IBM Plex Sans, sans-serif",
+      "weights": ["600", "700"],
+      "tracking": "tracking-tight",
+      "usage": "Use for all page titles, section headers, and data labels."
+    },
+    "body": {
+      "family": "Figtree, sans-serif",
+      "weights": ["400", "500"],
+      "leading": "leading-relaxed",
+      "usage": "Use for disease descriptions, disclaimers, and general text."
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "usage": "Use for confidence scores or strict numerical data to give a precise, clinical feel."
+    },
+    "forbidden_fonts": ["Inter (for headings)", "Space Grotesk"]
+  },
+  "colors": {
+    "background": {
+      "primary": "#FFFFFF",
+      "secondary": "#F8FAFC",
+      "tertiary": "#F1F5F9"
+    },
+    "text": {
+      "primary": "#0F172A",
+      "secondary": "#475569",
+      "tertiary": "#94A3B8"
+    },
+    "brand": {
+      "blue": "#1E3A8A",
+      "blue_light": "#EFF6FF",
+      "green": "#059669",
+      "green_light": "#ECFDF5",
+      "red": "#DC2626",
+      "red_light": "#FEF2F2"
+    },
+    "borders": "#E2E8F0",
+    "forbidden_colors": ["#1B93A4", "#7351B7"],
+    "notes": "Maintain strict APCA contrast standards. Do not use gradients for data-heavy sections; rely on flat, crisp colors to avoid optical refraction of medical information."
+  },
+  "visual_enhancers": {
+    "spacing": "Use p-6, p-8, and p-12 generously. Medical apps require massive breathing room to reduce cognitive load.",
+    "border_radius": "rounded-2xl for main cards, rounded-xl for inner elements. Avoid sharp brutalist edges.",
+    "shadows": "shadow-[0_8px_30px_rgba(15,23,42,0.04)] - keep shadows extremely subtle and ambient.",
+    "custom_cursor": "Implement a custom doctor symbol cursor globally via CSS: `cursor: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"%231E3A8A\"><path d=\"M19 10h-4V6c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v4H5c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h4v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4h4c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2z\"/></svg>') 16 16, auto;`",
+    "surfaces": "Use 'Flat Solid' strategy. Avoid Glassmorphism for medical data sections to ensure 100% clarity. Use 1px subtle borders (border-slate-200) to define sections."
+  },
+  "grids": {
+    "marketing_hero": "MODE A: 'Tetris' Grid for the landing section. Hero text spanning 8 columns, abstract clinical image spanning 4 columns.",
+    "results_dashboard": "MODE B: High Density Grid. Image thumbnail (col-span-1), Diagnosis (col-span-2), Confidence Score Widget (col-span-1). Use h-full to align bottom edges."
+  },
+  "layouts": {
+    "navigation": "Clean, sticky top nav with Logo on left and 'Emergency Disclaimer' explicitly written on the right. No auth buttons.",
+    "upload_section": "Massive drag-and-drop zone with dashed border-slate-300, minimal icon, and clear 'Upload Skin Image' text. Must have disclaimer checkbox below.",
+    "results_page": "Bento-style layout. Left side: original image with a subtle scanning overlay. Right side: tabbed or stacked cards for Disease Name, Confidence, Description, Treatments, and PDF Download CTA."
+  },
+  "motion": {
+    "hover_states": "Buttons should have slight lift (-translate-y-0.5) and deeper background color (hover:bg-blue-900).",
+    "page_transitions": "Fade-in (opacity from 0 to 1) and slide-up (y from 10 to 0) using framer-motion.",
+    "loading_state": "For the AI detection phase, implement a 'Scanning' animation over the image—a horizontal blue/green tinted line moving up and down to signify analysis."
+  },
+  "accessibility": {
+    "contrast": "All text must pass 4.5:1 minimum. Use blue-900 or slate-900 on white backgrounds.",
+    "disclaimers": "Medical disclaimers must be visually distinct (e.g., wrapped in a soft yellow or red-tinted alert box) and clearly readable.",
+    "focus": "focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 on all interactive elements.",
+    "test_attributes": "Add data-testid to all inputs, buttons, and critical result fields."
+  },
+  "media": {
+    "icon_library": "@phosphor-icons/react (Weight: 'regular' or 'duotone' for clinical friendliness)",
+    "image_usage": "Use images primarily for the marketing/landing hero. For the application itself, prioritize clean UI over decorative images."
+  },
+  "3d_libraries": {
+    "recommendation": "Avoid heavy 3D for this clinical app to maintain blazing fast load times and trust. Use framer-motion for simple 'scanning' micro-interactions.",
+    "data_visualization": "Use simple SVG progress bars or Recharts (if needed) for confidence scores, keeping styling minimal."
+  },
+  "image_urls": {
+    "hero_patient_exam": {
+      "url": "https://images.pexels.com/photos/7446661/pexels-photo-7446661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Dermatologist using advanced technology for a skin examination in a clinic setting. Use for landing page hero.",
+      "category": "hero"
+    },
+    "hero_tablet_exam": {
+      "url": "https://images.pexels.com/photos/7446672/pexels-photo-7446672.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Healthcare professional examining patient's skin using tablet. Use as secondary feature image.",
+      "category": "feature"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install libraries: `yarn add @phosphor-icons/react framer-motion html2pdf.js jspdf react-dropzone`",
+    "Use standard JS files (.jsx/.js) as the environment does not support TSX.",
+    "Global CSS: Apply the custom SVG cursor to `body, a, button, input` to meet the 'Doctor symbol cursor' requirement.",
+    "Disclaimer Enforcement: The user MUST check a box saying 'I understand this is not medical advice' before the Upload button becomes active.",
+    "PDF Generation: Implement a feature using html2pdf or jspdf that takes the results DOM node and exports it as a medical-style PDF report with letterhead.",
+    "Color Usage: Only use the defined slate-900, white, and specific medical blues/greens. Avoid any generic 'tech' gradients.",
+    "Implement the 'Bento Grid' strategy for the results display. Keep it rigid, precise, and highly legible.",
+    "Do NOT track history; ensure all state is cleared if the user navigates away or refreshes."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not converge toward generic 'AI slop' aesthetics. Use strict, deliberate spacing and typography.",
+    "Never use dark colors as gradients. Stick to flat, clinical colors.",
+    "Avoid generic centered layouts for data; align text to the left for readability.",
+    "Create depth with subtle borders and very light shadows, not heavy drop shadows.",
+    "Do not apply `transition: all` universally.",
+    "Do not center align the `.App` container text globally.",
+    "Never use emoji characters for icons; use @phosphor-icons/react.",
+    "Ensure every interaction has a deliberate micro-animation (e.g., hover, focus).",
+    "Use 2-3x more spacing (p-6, p-8) than feels comfortable to prevent cramped layouts.",
+    "Export components as named exports and pages as default exports.",
+    "Use `sonner` for toast notifications (e.g., error during image upload)."
+  ]
+}

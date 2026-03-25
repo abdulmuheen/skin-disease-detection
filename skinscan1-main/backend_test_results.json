@@ -1,0 +1,37 @@
+{
+  "total_tests": 5,
+  "passed_tests": 5,
+  "success_rate": 100.0,
+  "test_details": [
+    {
+      "test": "Health Check",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-03-25T06:12:41.115304"
+    },
+    {
+      "test": "Root Endpoint",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-03-25T06:12:41.242326"
+    },
+    {
+      "test": "Conditions Endpoint",
+      "success": true,
+      "details": "Found 10 conditions",
+      "timestamp": "2026-03-25T06:12:41.350253"
+    },
+    {
+      "test": "Analyze Endpoint",
+      "success": true,
+      "details": "Detected: Healthy Skin",
+      "timestamp": "2026-03-25T06:12:45.013519"
+    },
+    {
+      "test": "Analyze Invalid Data",
+      "success": true,
+      "details": "Correctly rejected invalid base64",
+      "timestamp": "2026-03-25T06:12:45.105123"
+    }
+  ]
+}
